@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+    input{
+        display: none;
+    }
+</style>
+    <body>
+        <div class="profile">
+            <div class="pro">
+                <h1>Brian makanda</h1>
+                <img src="../public/images/profile.png" id="profile-Pic">
+                <label for="input-file">Update Image</label>
+                <input type="file" accept="image/jpeg, image/png, image/jpg"
+                    id="input-file">
+            </div>
+        </div>
+
+        <script>
+        let profilePic = document.getElementById("profile-Pic");
+         let inputFile = document.getElementById("input-file");
+         
+         inputFile.onchange = function(){
+            profilePic.src = URL.createObjectURL(inputFile.files[0]);
+         }
+    </script>
+    </body>
+</html>

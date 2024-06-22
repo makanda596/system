@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sign &mdash; Up</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <script defer src="../index.js" async defer></script>
+</head>
+
+<body>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    
+}
+section{
+    place-items: centre;
+    width: 70%;
+    margin-top: 20px;
+    margin-left: 60px;
+    border: 2px solid #858383;
+    height: auto;
+    padding-top: 20px;
+    padding-left: 40px;
+}
+h1{
+    color: rgba(37, 37, 25, 0.747);
+    text-align: center;
+    width:88%;
+    line-height: 30px;
+}
+.container{
+    margin-top: 10px;
+}
+
+.con{
+      display: flex;
+    align-items: center;
+    width: 80%;
+    padding: 2px 12px;
+    color: #1a1919;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.con input{
+       width: 100%;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    color: #555;
+}
+.con input:focus{
+    background-color: white;
+}
+.con img{
+    width: 8%;
+}
+article{
+     width: 78%;
+      margin-left: 60px;
+      text-align: center;
+    border: 2px solid #858383;
+    margin-top: 16px;
+    height: 60px;
+    font-size: 18px;
+}
+#log{
+    background-color: blue;
+    margin-left: 20px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+#log:hover{
+      background-color: rgb(105, 105, 5);
+}
+label{
+    display: block;
+    color: blue;
+    font-weight: 500;
+    font-size: 20px;
+}
+input{
+    width: 80%;
+    padding: 10px 12px;
+    outline: 0;
+    font-size: 14px;
+    color: #1a1919;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-bottom: 4px;
+}
+
+button{
+    background-color: rgb(105, 105, 5);
+    outline: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 8px 14px;
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    border: 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+button:hover{
+    background-color: rgba(0, 0, 255, 0.781);
+}
+
+
+
+@media(max-width: 700px){
+
+
+}
+
+@media(min-width: 700px){
+
+ 
+    section{
+      width: 40%;
+      margin-left: 250px;
+    }
+    article{
+        width: 44.7%;
+        margin-left: 250px;
+    }
+}
+
+
+@media(min-width: 1000px){
+     
+    
+    section{
+      width:28%;
+      margin-left: 450px;
+    }
+    article{
+        width: 31%;
+        margin-left: 450px;
+    }
+}
+    </style>
+    <section>
+        <h1> SYSTEM</h1>
+        <form id="form" method="GET" action="/">
+            <div class="container">
+                <label for="name">Full Names</label>
+                <input type="text" id="names" name="name" >
+                <div style="color:red" id="names_error"></div>
+            </div>
+            <div class="container">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" autocomplete="on">
+                <div style="color:red" id="email_error"></div>
+            </div>
+            <div class="container">
+                <label for="username">Username</label>
+                <input type="text" id="user" name="username">
+                <div style="color:red" id="user_error"></div>
+            </div>
+        
+            <div class="container">
+                <label for="password">Password</label>
+                <div class="con">
+                <input type="password" id="password" name="password">
+                <img id="eyeicon" src="../public/eye-close.png"></div>
+                <div style="color:red" id="password_error"></div>
+            </div>
+            <button type="submit" ><a href="./more.html">SIGN UP</a></button>
+        </form>
+    </section>
+    <article>
+        <p>Have an Account?<button id="log" type="log" ><a href="../index.html">LOG IN</a></button> </p>
+</article>
+
+<script>
+     let eyeicon = document.getElementById('eyeicon')
+        eyeicon.addEventListener("click", (e) => {
+            if (password.type == "password") {
+                password.type = "text"
+                eyeicon.src = "../public/eye-open.png"
+            } else {
+                password.type = "password"
+                eyeicon.src = "../public/eye-close.png"
+            }
+        })
+    
+</script>
+</body>
+
+</html>

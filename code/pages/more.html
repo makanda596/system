@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>More Details</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <style>
+    section{
+        width: 90%;
+        height: auto;
+        display: flex;
+          background-color: rgba(139, 139, 8, 0.808);
+        flex-direction: column;
+        color: #fff;
+        margin-left: 5%;
+    }
+    h1{
+        text-align: center;
+    }
+    form{
+        padding: 20px 60px;
+    }
+    label{
+        display: block;
+        margin-bottom: 4px;
+        margin-top: 4px;
+        color: black;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    input{
+        margin-bottom: 16px;
+        width: 90%;
+        padding: 8px 10px;
+        border: 1px solid #383636d5;
+        outline: 0;
+        border-radius: 4px;
+        background-color: white;
+        font-size: 14px;
+    }
+    input:hover{
+        border: 2px solid blue;
+    }
+    span{
+        color: red;
+    }
+    select{
+        width: 97%;
+        padding: 8px 10px;
+        border: 1px solid #383636d5;
+        outline: 0;
+        border-radius: 4px;
+        background-color: white;
+        font-size: 14px;
+    }
+    textarea{
+        border: o;
+        outline: 0;
+        padding: 6px 6px;
+        font-size: 16px;
+        color: #2b2929;
+        letter-spacing: 1.1px;
+    }
+    .all{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        
+    }
+    a{
+        text-decoration: none;
+        color: #3a3939d8;
+        background-color: rgba(16, 53, 219, 0.87);
+        border:1px solid blue;
+        padding:4px 4px;
+        border-radius: 6px;
+        color: white;
+        outline: 0;
+    }
+    a:hover{
+        background-color:rgb(82, 76, 76);
+        border: 1px solid rgb(82, 76, 76) ;
+    }
+    button{
+            text-decoration: none;
+        color: #3a3939d8;
+        background-color: rgba(16, 53, 219, 0.87);
+       border:1px solid  rgb(139, 139, 8);
+        padding:6px 4px;
+        border-radius: 6px;
+        color: white;
+        outline: 0;
+        font-size: 16px;
+    }
+    button:hover{
+         background-color: rgba(12, 33, 124, 0.959);
+        cursor: pointer;
+    }
+    @media(max-width: 700px){
+
+
+}
+
+@media(min-width: 700px){
+    body{
+        display: flex;
+        justify-content: center;
+    }
+section{
+    width: 60%;
+}
+}
+
+
+
+
+@media(min-width: 1000px){
+section{
+    width: 50%;
+}
+}
+    </style>
+    <body>
+        <section>
+            <h1>ENTER YOUR PERSONAL INFORMATION:</h1>
+            <form>
+                
+                <label for="name" >First name <span>*</span></label>
+                <input type="text" name="Firstname" id="firstname" required >
+                <label for="name">Last name <span>*</span></label>
+                <input type="text" name="lastname" id="firstname" required >
+                <label for="email">Email address <span>*</span></label>
+                <input type="text" name="email" id="" placeholder="example@gmail.com">
+                <label for="">Phone Number <span>*</span></label>
+                <input type="number" name="number" id="number" >
+                <label for="gender">Gender <span>*</span></label>
+                <select name="Gender" id="Gender">
+                    <option value="">Select Gender:</option>
+                    <option value="male">male</option>
+                    <option value="female">Female</option>
+                </select>
+                <label for="date">Start Date <span>*</span> </label>
+                <input type="date">
+                <label for="date">Date of Completion <span>*</span></label>
+                <input type="date">
+                <label for="year">Year Of Study <span>*</span></label>
+                <input type="text" name="year" id="year" required="on" placeholder="">
+                <label for="expectations">What`s Your Expectation(s) After 3 months? </label>
+                <textarea name="expectations" rows="8" cols="30" required ></textarea>
+                <div class="all">
+                <a href="./sign up.html">GO BACK</a>
+                <button type="submit" >SIGN UP</button>
+                </div>
+            </form>
+        </section>
+        <script src="" async defer></script>
+    </body>
+</html>
