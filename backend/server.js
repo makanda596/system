@@ -47,10 +47,6 @@ app.get("/forgot-password", (req, res) => {
 //   });
 // });
 
-// app.get("/home", (req, res) => {
-//   res.send("Login successful");
-// });
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
