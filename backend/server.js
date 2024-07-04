@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const connection = require("./db/db_connect");
+// const connection = require("./db/conn");
 const app = express();
 const port = 3001;
 const path = require("path");
@@ -25,27 +25,27 @@ app.get("/forgot-password", (req, res) => {
 });
 
 // configure routes
-// app.post("/signup", (req, res) => {
-//   const { username, email, dob, password } = req.body;
-//   const query = `INSERT INTO user_details (user_name, email_id, date_of_birth, password) VALUES ('${username}', '${email}', '${dob}', '${password}')`;
-//   connection.query(query, (err, results) => {
-//     if (err) throw err;
-//     res.redirect("/");
-//   });
-// });
+app.post("/signup", (req, res) => {
+  const { username, email, full_name, password } = req.body;
+  const query = `INSERT INTO user_details (user_name, email_id, full_name, password) VALUES ('${username}', '${email}', '${full_name}', '${password}')`;
+  connection.query(query, (err, results) => {
+    if (err) throw err;
+    res.redirect("/");
+  });
+});
 
-// app.post("/login", (req, res) => {
-//   const { username, password } = req.body;
-//   const query = `SELECT * FROM user_details WHERE user_name = '${username}' AND password = '${password}'`;
-//   connection.query(query, (err, results) => {
-//     if (err) throw err;
-//     if (results.length > 0) {
-//       res.redirect("/home");
-//     } else {
-//       res.send("Invalid login credentials");
-//     }
-//   });
-// });
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+  const query = `SELECT * FROM user_details WHERE email_id = '${email}' AND password = '${password}'`;
+  connection.query(query, (err, results) => {
+    if (err) throw err;
+    if (results.length > 0) {
+      res.redirect("/home");
+    } else {
+      res.send("Invalid login credentials");
+    }
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

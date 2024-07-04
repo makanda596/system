@@ -21,7 +21,7 @@
                     >
                     <label for="username">Email</label>
                 </div>
-                <div style="color:red" id="name_error"></div>
+                <div style="color: red" id="name_error"></div>
                 <div class="input-box">
                     <input
                         id="password"
@@ -31,7 +31,7 @@
                     >
                     <img id="eyeicon" src="/eye-close.png">
                 </div>
-                <div style="color:red" id="password_error"></div>
+                <div style="color: red" id="password_error"></div>
                 <p class="f">
                     <a class="f" href="/forgot-password">Forget Password?</a>
                 </p>
@@ -45,45 +45,50 @@
             </form>
         </section>
         <script>
-    const form=document.getElementById('form')
-    const name=document.getElementById('name')
-    const password=document.getElementById('password')
-    const name_error=document.getElementById('name_error')
-    const password_error=document.getElementById('password_error')
+      const form = document.getElementById("form");
+      const name = document.getElementById("name");
+      const password = document.getElementById("password");
+      const name_error = document.getElementById("name_error");
+      const password_error = document.getElementById("password_error");
 
-    form.addEventListener('submit',(e)=>{
-    var email_check = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+      form.addEventListener("submit", (e) => {
+        var email_check =
+          /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-    if(name.value ==='' ){
-    e.preventDefault()
-    name_error.innerHTML="enter your email"
-    }
-    else if(!name.value.match(email_check)){
-    e.preventDefault()
-    name_error.innerHTML="enter a valid  email"
-    }else{
-        e.preventDefault()
-        name_error.innerHTML=""
-    }
+        if (name.value === "") {
+          e.preventDefault();
+          name_error.innerHTML = "enter your email";
+        } else if (!name.value.match(email_check)) {
+          e.preventDefault();
+          name_error.innerHTML = "enter a valid  email";
+        } else {
+          e.preventDefault();
+          name_error.innerHTML = "";
+        }
 
-    if(password.value ===""){
-    e.preventDefault()
-    password_error.innerHTML="enter your password"
-    }else if(password.value.length <=8){ e.preventDefault()
-        password_error.innerHTML="password must be more than 8 characters" }else{ e.preventDefault()
-        password_error.innerHTML="" } }) 
-        
-        let eyeicon=document.getElementById("eyeicon")
+        if (password.value === "") {
+          e.preventDefault();
+          password_error.innerHTML = "enter your password";
+        } else if (password.value.length <= 8) {
+          e.preventDefault();
+          password_error.innerHTML = "password must be more than 8 characters";
+        } else {
+          e.preventDefault();
+          password_error.innerHTML = "";
+        }
+      });
 
-        eyeicon.addEventListener("click",()=>{
-            if(password.type==="password"){
-                password.type="text"
-                eyeicon.src="/eye-open.png"
-            }else{
-                password.type="password"
-                eyeicon.src="/eye-close.png"
-            }
-        })
+      let eyeicon = document.getElementById("eyeicon");
+
+      eyeicon.addEventListener("click", () => {
+        if (password.type === "password") {
+          password.type = "text";
+          eyeicon.src = "/eye-open.png";
+        } else {
+          password.type = "password";
+          eyeicon.src = "/eye-close.png";
+        }
+      });
         </script>
     </body>
 </html>
