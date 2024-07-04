@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reset Password</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7e4c9402a2.js" crossorigin="anonymous"></script>
+    </head>
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+}
+section{
+    place-items: centre;
+    width: 80%;
+   padding: 10px 30px 14px 30px;
+    display: grid;
+    margin-top: 20px;
+    margin-left: 60px;
+    border: 2px solid #858383;
+    text-align: center;
+    margin-top: 100px;
+    height: 380px;
+}
+.fa-solid{
+    font-size: 30px;
+    padding-top: 10px;
+}
+h2{
+    font-size: 28px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+p{
+    font-size: 20px;
+    font-weight: 400;
+
+}
+#email{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 4px;
+    font-size: 16px;
+    color: #575656;
+}
+strong{
+    color:black;
+    font-weight: 600;
+}
+button{
+    margin-top: 20px;
+    padding: 10px 16px;
+    background-color:blue;
+    color: white;
+    border: 0;
+    outline: 0;
+      border-radius: 6px;
+      cursor: pointer;
+      letter-spacing: 1.4px;
+      margin-bottom: 10px;
+}
+button:hover{
+    background-color: rgb(139, 139, 8);
+}
+.popup{
+    width: 50%;
+    background-color: rgba(19, 19, 180, 0.993);
+    padding: 10px 16px;
+    color: white;
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    font-size: 18px;
+    letter-spacing: 1.3px;
+    transition: 20sec, top 20sec;
+    visibility: hidden;
+    margin-left: 20px;
+}
+.open-popup{
+    visibility:visible;
+    transform: translate(-50%, -50%)scale(1);
+    top:24%;
+        transition: 20sec, top 20sec;
+}
+.popup button{
+    padding: 6px 8px;
+       background-color: rgb(139, 139, 8);
+       color: white;
+       outline: 0;
+       border: 0;
+       margin-top: 4px;
+}
+a{
+    text-decoration: none;
+   color: #3a3939d8;
+   font-size: 18px;
+   font-weight: 600;
+   margin-top: 16px;
+   margin-bottom: 30px;
+}
+a:hover{
+    color: rgb(36, 32, 32);
+}
+.lo{ 
+    color: black;
+    text-decoration: none;
+    font-weight: 800;
+}
+article{
+     width: 80%;
+      margin-left: 60px;
+      text-align: center;
+    border: 2px solid #858383;
+    margin-top: 16px;
+    font-size: 18px;
+}
+.lo:hover{    
+     color: #3a3939cb;
+}
+#log{
+    background-color:white;
+    margin-left: 20px;
+    padding: 2px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+
+
+@media(max-width: 700px){
+
+}
+
+@media(min-width: 700px){
+    section{
+      width: 40%;
+      margin-left: 300px;
+      margin-top: 4px;
+    }
+    article{
+        width: 40%;
+        margin-left: 300px;
+    }
+   
+}
+
+
+
+
+@media(min-width: 1000px){
+     section{
+      width:28%;
+      margin-left: 500px;
+    }
+    article{
+        width: 28%;
+        margin-left: 500px;
+    }
+}
+    </style>
+    <body>
+        <section>
+            <div class="cointainer">
+                <form method="GET" action="/" id="form">
+                    <i class="fa-solid fa-lock"></i>
+                    <h2>Find your Account</h2>
+                    <p> Enter your email or phone number and we'll send you a link to get back into your account.</p>
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="email"
+                        name="email"
+                        required="on"
+                    >
+                    <div style="color:red" id="email_error"></div>
+                    <button type="submit">SEND</button>
+                </form>
+                <div class="popup" id="popup">
+                    <p>
+                        We sent a link to reset your Password.
+                        <strong>  check your email</strong>
+                    </p>
+                    <button type="submit" onclick="closePopup()">OK</button>
+                </div>
+            </div>
+            <p>OR</p>
+            <a href="/signup">Create New Account</a>
+        </section>
+        <article>
+            <p>
+                <button id="log" type="log">
+                    <a class="lo" href="/">Back to Login</a>
+                </button>
+            </p>
+        </article>
+        <script>
+    
+    
+            form.addEventListener('submit',(e)=>{
+                e.preventDefault();
+
+                const form=document.getElementById('form')
+                const email=document.getElementById('email')
+                const email_error=document.getElementById('email_error')
+
+
+                var email_check = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            
+                if (!email.value.match(email_check) || email.value === ""){
+                
+                    e.preventDefault();
+                    email_error.innerHTML = "Enter a valid email"
+                }else{
+                    e.preventDefault();
+                    email_error.innerHTML = ""
+                    let popup = document.getElementById("popup");
+                    popup.classList.add("open-popup");
+                }
+            })
+            //let popup = document.getElementById("popup");
+            //function openPopup() {
+            //    popup.classList.add("open-popup")
+            //}
+            function closePopup(){
+                popup.classList.remove("open-popup")
+                window.location.href = "/"; //redirect to homepage after successful email input
+            }
+        </script>
+    </body>
+</html>

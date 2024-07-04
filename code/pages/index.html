@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="/index.css">
+        <script src="https://kit.fontawesome.com/7e4c9402a2.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <img class="img1" src="/drs.jpg">
+        <section>
+            <h1>SYSTEM</h1>
+            <form id="form" action="/" method="GET">
+                <div class="input">
+                    <input
+                        id="name"
+                        type="text"
+                        placeholder=""
+                        autocomplete="on"
+                    >
+                    <label for="username">Email</label>
+                </div>
+                <div style="color:red" id="name_error"></div>
+                <div class="input-box">
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="enter password "
+                        autocomplete="off"
+                    >
+                    <img id="eyeicon" src="/eye-close.png">
+                </div>
+                <div style="color:red" id="password_error"></div>
+                <p class="f">
+                    <a class="f" href="/forgot-password">Forget Password?</a>
+                </p>
+                <button class="log" id="submit">log in</button>
+                <p>
+                    Don`t have an Account?
+                    <button class="sign" type="next">
+                        <a href="/signup">Sign Up</a>
+                    </button>
+                </p>
+            </form>
+        </section>
+        <script>
+    const form=document.getElementById('form')
+    const name=document.getElementById('name')
+    const password=document.getElementById('password')
+    const name_error=document.getElementById('name_error')
+    const password_error=document.getElementById('password_error')
+
+    form.addEventListener('submit',(e)=>{
+    var email_check = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+    if(name.value ==='' ){
+    e.preventDefault()
+    name_error.innerHTML="enter your email"
+    }
+    else if(!name.value.match(email_check)){
+    e.preventDefault()
+    name_error.innerHTML="enter a valid  email"
+    }else{
+        e.preventDefault()
+        name_error.innerHTML=""
+    }
+
+    if(password.value ===""){
+    e.preventDefault()
+    password_error.innerHTML="enter your password"
+    }else if(password.value.length <=8){ e.preventDefault()
+        password_error.innerHTML="password must be more than 8 characters" }else{ e.preventDefault()
+        password_error.innerHTML="" } }) 
+        
+        let eyeicon=document.getElementById("eyeicon")
+
+        eyeicon.addEventListener("click",()=>{
+            if(password.type==="password"){
+                password.type="text"
+                eyeicon.src="/eye-open.png"
+            }else{
+                password.type="password"
+                eyeicon.src="/eye-close.png"
+            }
+        })
+        </script>
+    </body>
+</html>
