@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const connection = require("./db/conn");
+const connection = require("./db/conn");
 const app = express();
 const port = 3001;
 const path = require("path");
