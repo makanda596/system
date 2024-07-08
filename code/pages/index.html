@@ -11,12 +11,13 @@
         <img class="img1" src="/drs.jpg">
         <section>
             <h1>SYSTEM</h1>
-            <form id="form" action="/" method="GET">
+            <form id="form" action="/login" method="POST">
                 <div class="input">
                     <input
                         id="name"
                         type="text"
                         placeholder=""
+                        name="email"
                         autocomplete="on"
                     >
                     <label for="username">Email</label>
@@ -26,6 +27,7 @@
                     <input
                         id="password"
                         type="password"
+                        name="password"
                         placeholder="enter password "
                         autocomplete="off"
                     >
@@ -35,7 +37,7 @@
                 <p class="f">
                     <a class="f" href="/forgot-password">Forget Password?</a>
                 </p>
-                <button class="log" id="submit">log in</button>
+                <button class="log" id="submit" type="submit">Log In</button>
                 <p>
                     Don`t have an Account?
                     <button class="sign" type="next">
@@ -62,7 +64,7 @@
           e.preventDefault();
           name_error.innerHTML = "enter a valid  email";
         } else {
-          e.preventDefault();
+          //e.preventDefault();
           name_error.innerHTML = "";
         }
 
@@ -73,7 +75,7 @@
           e.preventDefault();
           password_error.innerHTML = "password must be more than 8 characters";
         } else {
-          e.preventDefault();
+          //e.preventDefault();
           password_error.innerHTML = "";
         }
       });

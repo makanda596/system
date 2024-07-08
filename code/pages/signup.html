@@ -153,10 +153,10 @@ button:hover{
         </style>
         <section>
             <h1> SYSTEM</h1>
-            <form id="form" method="GET" action="/">
+            <form id="form" method="POST" action="/signup">
                 <div class="container">
                     <label for="name">Full Name</label>
-                    <input type="text" id="names" name="name">
+                    <input type="text" id="full_name" name="full_name">
                     <div style="color:red" id="names_error"></div>
                 </div>
                 <div class="container">
@@ -183,7 +183,7 @@ button:hover{
                     <div style="color:red" id="password_error"></div>
                 </div>
                 <button type="submit">
-                    <a href="/signup">SIGN UP</a>
+                    SIGN UP
                 </button>
             </form>
         </section>
