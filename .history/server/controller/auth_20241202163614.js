@@ -1,0 +1,34 @@
+
+export const signup = async (req, res) => {
+    const {
+        fistName,
+        LastName,
+        email,
+        phoneNumber,
+        roomNumber,
+        password,
+    } = req.body
+
+    try {
+        //chechking if the email exists
+        const existinguser = await User.findOne({ email })
+        if (existinguser) {
+            return res.status(400).json({ message: 'Email already exists' })
+        }
+
+        //chechking if the roomnumber exists
+        const existingroom = await User.findOne({ roomNumber })
+        if (existingroom) {
+            return res.status(400).json({ message: 'Room already exists' })
+        }
+        //hashing the password
+        const hashedPassword = await bcrypt.hash(password, 10)
+        const newUser = new User({ fistName, LastName, email, phoneNumber, roomNumber, password: hashedPassword })
+        await newUser.save()
+    } catch (err) {
+        console.log(err)
+        res.status(500).send('Server Error')
+    }
+
+
+}
