@@ -109,38 +109,11 @@ app.get('/signup', async (req, res) => {
     }
 });
 
-// Update a tenant's information
-app.put('/api/admin/tenants/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        const updatedData = req.body;
-
-        // Find and update the user by ID
-        const updatedUser = await User.findByIdAndUpdate(id, updatedData, { new: true });
-
-        if (!updatedUser) {
-            return res.status(404).json({ message: 'Tenant not found' });
-        }
-
-        res.status(200).json({ message: 'Tenant updated successfully', updatedUser });
-    } catch (error) {
-        console.error('Error updating tenant:', error);
-        res.status(500).json({ message: 'Error updating tenant' });
-    }
-});
-
 // Delete a tenant
-app.delete('/api/admin/tenants/:id', async (req, res) => {
+app.delete('/signup/delete', async (req, res) => {
     try {
         const { id } = req.params;
-
-        // Find and delete the user by ID
-        const deletedUser = await User.findByIdAndDelete(id);
-
-        if (!deletedUser) {
-            return res.status(404).json({ message: 'Tenant not found' });
-        }
-
+        await User.findByIdAndDelete(id);
         res.status(200).json({ message: 'Tenant deleted successfully' });
     } catch (error) {
         console.error('Error deleting tenant:', error);

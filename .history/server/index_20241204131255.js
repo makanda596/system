@@ -150,7 +150,7 @@ app.delete('/api/admin/tenants/:id', async (req, res) => {
 
 // Database connection
 mongoose
-    .connect('mongodb+srv://oumab743:makandabrian123@cluster0.qj7my.mongodb.net/social-app?retryWrites=true&w=majority&appName=Cluster0')
+    .connect(process.env.MONGO_URI)
     .then(() => {
         console.log('Connected successfully to MongoDB');
     })
