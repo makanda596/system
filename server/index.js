@@ -95,6 +95,31 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+// Admin Dashboard Endpoints
+
+// Fetch all tenants (for admin dashboard)
+app.get('/signup', async (req, res) => {
+    try {
+        const users = await User.find({}, { password: 0 }); // Exclude the password field
+        res.status(200).json(users);
+    } catch (error) {
+        console.error('Error fetching tenants:', error);
+        res.status(500).json({ message: 'Error fetching tenants' });
+    }
+});
+
+// Delete a tenant
+app.delete('/api/admin/tenants/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await User.findByIdAndDelete(id);
+        res.status(200).json({ message: 'Tenant deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting tenant:', error);
+        res.status(500).json({ message: 'Error deleting tenant' });
+    }
+});
+
 // Database connection
 mongoose
     .connect('mongodb+srv://oumab743:makandabrian123@cluster0.qj7my.mongodb.net/social-app?retryWrites=true&w=majority&appName=Cluster0')
